@@ -1,7 +1,17 @@
-﻿@{
+﻿@model IEnumerable<TodoItem>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
     <h1>Todo App</h1>
+  
+    <hr />
+    
+    @foreach (var todo in Model)
+    {
+        <p>
+            <span>@todo.Id</span> - <span>@todo.Text</span>
+        </p>
+    }
 </div>
