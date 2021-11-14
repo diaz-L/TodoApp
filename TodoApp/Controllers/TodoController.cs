@@ -59,6 +59,28 @@ namespace TodoApp.Controllers
 
             return View(todo);
         }
-        
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var todo = _ctx.Todos.Find(id);
+
+            if (todo is null)
+            {
+                ViewBag.NotFound = true;
+                return RedirectToAction("Index", "Home");
+            }
+            
+            return View(todo);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(TodoItem todo)
+        {
+            _ctx.Todos.Remove(todo);
+            _ctx.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

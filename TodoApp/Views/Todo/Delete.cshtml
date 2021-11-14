@@ -1,0 +1,14 @@
+@model TodoItem
+
+<h1>Delete Todo</h1>
+
+<hr />
+
+<h2>Are you sure?</h2>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="@Model.Id">
+    <input type="hidden" asp-for="@Model.Text">
+    <input type="submit" value="Yes">
+    <a asp-action="Index" asp-controller="Home">Cancel</a>
+</form>
