@@ -15,7 +15,7 @@
     @foreach (var todo in Model)
     {
         <p>
-            <span>@todo.Id</span> - <span>@todo.Text</span>
+            <span>@todo.Id</span> - <span>@todo.Text</span> - <a asp-action="Edit" asp-controller="Todo" asp-route-id="@todo.Id">Edit</a>
         </p>
     }
 </div>
