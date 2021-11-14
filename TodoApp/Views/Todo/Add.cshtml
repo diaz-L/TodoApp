@@ -1,0 +1,22 @@
+@model TodoItem
+
+@{
+    ViewBag.Title = "Add Todo";
+}
+
+<h1>Add Todo</h1>
+
+<hr />
+
+<form asp-action="Add" method="post">
+    <div asp-validation-summary="All"></div>
+    
+    <div>
+        <label asp-for="@Model.Text"></label>
+        <input asp-for="@Model.Text">
+    </div>
+    
+    <div>
+        <input type="submit" value="Add">
+    </div>
+</form>
